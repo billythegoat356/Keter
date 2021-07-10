@@ -27,7 +27,7 @@ async def code_verify(channel):
 
     f = BytesIO()
 
-    code_file = gTTS(text=code.lower())
+    code_file = gTTS(text=code.lower(), lang='fr')
 
     code_file.write_to_fp(f)
 
