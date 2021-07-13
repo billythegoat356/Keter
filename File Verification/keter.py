@@ -74,7 +74,7 @@ async def on_message(message):
                 return
 
 
-        if await file_verification(file, author, key, max_size, user_logs) if logs else file_verification(file, author, key, max_size):
+        if await file_verification(file, author, key, max_size, user_logs) if logs else await file_verification(file, author, key, max_size):
             await message.delete()
             await channel.send(content=f"Mmmh, ton fichier m'a l'air suspect {author.mention}!")
 
