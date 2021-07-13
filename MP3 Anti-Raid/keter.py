@@ -7,7 +7,7 @@ from src.mp3_verification import code_verify
 
 
 # Le token de votre Bot Discord:
-token = "token"
+token = "TOKEN"
 
 
 intents = discord.Intents.all()
