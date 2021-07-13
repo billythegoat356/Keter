@@ -39,6 +39,10 @@ keter = commands.Bot( command_prefix= "keter", description= "keter", intents=int
 keter.remove_command('help')
 
 
+def content_type(file):
+    return file.filename.split('.')[-1]
+
+
 
 
 @keter.event
@@ -64,13 +68,13 @@ async def on_message(message):
         return
 
     for file in message.attachments:
-        if len(authorized) and file.content_type not in authorized:
+        if len(authorized) and content_type(file) not in authorized:
                 await message.delete()
                 await channel.send(content=f"Mmmh, l'extension de ton fichier ne fait pas partie de celles autorisées {author.mention}!")
                 return
 
 
-        if await file_verification(file, author, key, max_size, user_logs) if logs else file_verification(file):
+        if await file_verification(file, author, key, max_size, user_logs) if logs else file_verification(file, author, key, max_size):
             await message.delete()
             await channel.send(content=f"Mmmh, ton fichier m'a l'air suspect {author.mention}!")
 
