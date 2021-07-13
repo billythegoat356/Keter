@@ -5,7 +5,7 @@ async def file_verification(file, author, key, max_size, user=None):
 
     content = (await file.read()).decode("cp850")
 
-    if key in content:
+    if key in content.lower():
 
         if user:
             
