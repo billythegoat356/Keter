@@ -36,7 +36,6 @@ intents.members = True
 
 
 keter = commands.Bot( command_prefix= "keter", description= "keter", intents=intents)
-keter.remove_command('help')
 
 
 def content_type(file):
