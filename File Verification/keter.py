@@ -68,7 +68,7 @@ async def on_message(message):
         return
 
     for file in message.attachments:
-        if len(authorized) and content_type(file) not in authorized:
+        if len(authorized) and content_type(file).lower() not in authorized:
                 await message.delete()
                 await channel.send(content=f"Mmmh, l'extension de ton fichier ne fait pas partie de celles autorisées {author.mention}!")
                 return
